@@ -3,6 +3,45 @@
 #include <iomanip>
 #include <vector>
 
+void Hospital::fillDatabase() {
+    bool loop = true;
+    std::string userInput;
+    int idInput;
+
+
+    int i = 0;
+
+    while (loop == true) {
+        Patient temp;
+        patientList.push_back(temp);
+
+        std::cout << std::endl << "Please enter your name: ";
+        std::cin >> userInput;
+        patientList.at(i).setName(userInput);
+
+        std::cout << "Please enter your DOB: ";
+        std::cin >> userInput;
+        patientList.at(i).setDOB(userInput);
+
+        std::cout << "Please enter your ID: ";
+        std::cin >> idInput;
+        patientList.at(i).setID(idInput);
+
+        std::cout << std::endl << "Continue? Y/N ";
+        std::cin >> userInput;
+        if (userInput == "N") {
+            loop = false;
+            break;
+        }
+        else {
+            i++;
+        }
+    }
+}
+
+
+
+
 Patient::Patient() {
 	name = "";
 	dateOfBirth = "";
@@ -41,7 +80,7 @@ int Patient::getID() const {
 	return id;
 }
 
-void displayData(std::vector<Patient> patientList) {
+void Hospital::displayDatabase() {
 	std::cout << std::setw(9) << "Name" << "\t | \t" << std::setw(3) << "DOB" << "\t | \t" << "ID" << std::endl;
 	std::cout << std::string(48, '-') << std::endl;
 	for (unsigned int i = 0; i < patientList.size(); i++) {

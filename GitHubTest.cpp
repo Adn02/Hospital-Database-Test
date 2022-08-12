@@ -6,40 +6,20 @@ using namespace std;
 
 int main()
 {
-    vector<Patient> patientList;
-    bool loop = true;
-    string userInput;
-    int idInput;
+    Hospital Hospital1;
+    Hospital Hospital2;
+    Hospital1.fillDatabase();
+    Hospital2.fillDatabase();
+
+
+    Hospital1.displayDatabase();
     
-    
-    int i = 0;
+    cout << endl << endl << "Next database..." << endl;
 
-    while (loop == true) {
-        Patient temp;
-        patientList.push_back(temp);
+    Hospital2.displayDatabase();
 
-        cout << endl << "Please enter your name: ";
-        cin >> userInput;
-        patientList.at(i).setName(userInput);
+   
 
-        cout << "Please enter your DOB: ";
-        cin >> userInput;
-        patientList.at(i).setDOB(userInput);
-
-        cout << "Please enter your ID: ";
-        cin >> idInput;
-        patientList.at(i).setID(idInput);
-
-        cout << endl << "Continue? Y/N ";
-        cin >> userInput;
-        if (userInput == "N") {
-            loop = false;
-            displayData(patientList);
-            break;
-        }else {
-            i++;
-        }
-    }
 
    
     return 0;

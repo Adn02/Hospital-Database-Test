@@ -3,8 +3,10 @@
 
 #include <string>
 #include <vector>
+
+
 class Patient{
-	public:
+public:
 	Patient();
 	Patient(std::string name, std::string dateOfBirth, int id);
 	~Patient();
@@ -20,13 +22,21 @@ class Patient{
 	void printData();
 	
 
-	private:
-
+private:
 	std::string name;
 	std::string dateOfBirth;
 	int id;
 };
 
-void displayData(std::vector<Patient> patientList);
+
+class Hospital {
+public:
+	void fillDatabase();
+	void displayDatabase();
+
+private:
+	std::vector<Patient> patientList;
+};
+
 
 #endif
